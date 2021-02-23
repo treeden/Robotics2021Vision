@@ -6,13 +6,13 @@ cap.set(3,2000)
 cap.set(4,240)
 
 while True:
-    _, img = cap.read() #cv2.imread("VisionPic.jpg")
+    img = cv2.imread("Red-A.jpg")
     hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     lower_yellow = np.array([23, 60, 83])
     upper_yellow = np.array([30, 255, 255])
     masking = cv2.inRange(hsv_img, lower_yellow, upper_yellow)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (13, 13))
     opening = cv2.morphologyEx(masking, cv2.MORPH_OPEN, kernel)
 
     moment = cv2.moments(opening)
