@@ -14,7 +14,7 @@ while True:
     lower_yellow = np.array([23, 60, 83])
     upper_yellow = np.array([30, 255, 255])
     masking = cv2.inRange(img, lower_yellow, upper_yellow)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (13, 13))
     opening = cv2.morphologyEx(masking, cv2.MORPH_OPEN, kernel)
     ret, thresh = cv2.threshold(opening, 127, 255, 0)
     contourImg, contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_NONE)
