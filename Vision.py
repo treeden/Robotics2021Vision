@@ -6,7 +6,7 @@ cap.set(3, 720)
 cap.set(4, 1280)
 
 # _, img = cap.read()
-img = cv2.imread("Blue-A.jpg")
+img = cv2.imread("Red-A.jpg")
 
 hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
@@ -21,12 +21,9 @@ contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPR
 # cnt1 = sortedContours[0]
 # cnt2 = sortedContours[1]
 # cnt3 = sortedContours[2]
-# cv2.drawContours(img, [cnt1, cnt2, cnt3], -1, (255,0,0), 2)
-# moment = cv2.moments(masking)
+cv2.drawContours(img, contours, -1, (255,0,0), 2)
 
-# x = int(moment ["m10"] / moment["m00"])
-
-# y = int(moment ["m01"] / moment["m00"])z
+print(len(contours))
 
 height, width, channels = img.shape
 
@@ -50,8 +47,6 @@ if checkContour.count(True) > checkContour.count(False):
     print("Left")
 else:
     print("Right")
-
-cv2.circle(img, (centerX, centerY), 15, (35, 175, 242), 10)
 
 cv2.imshow("Center of the Image", img)
 
