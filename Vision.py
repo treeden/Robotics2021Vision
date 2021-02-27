@@ -10,8 +10,8 @@ img = cv2.imread("Blue-A.jpg")
 
 hsv_img = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-lower_yellow = np.array([23, 60, 83])
-upper_yellow = np.array([30, 255, 255])
+lower_yellow = np.array([29, 4, 192])
+upper_yellow = np.array([51, 62, 255])
 masking = cv2.inRange(hsv_img, lower_yellow, upper_yellow)
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (7, 7))
 opening = cv2.morphologyEx(masking, cv2.MORPH_OPEN, kernel)
